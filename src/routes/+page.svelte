@@ -1,2 +1,2 @@
-<h1 class="text-5xl">Welcome to SvelteKit</h1>
-<p>Visit <a class="text-r11y-green" href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1 class="text-5xl  ">THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG</h1>
+<h4 class="text-2xl">HELLO, WORLD!</h4>
