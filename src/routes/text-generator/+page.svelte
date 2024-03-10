@@ -8,10 +8,12 @@
 <div
     class="flex flex-col gap-4 container justify-center items-center max-w-screen-2xl"
 >
+    <!-- svelte-ignore a11y-autofocus -->
     <input
         type="text"
         bind:value={text}
         class="w-full font-sans form-input bg-background text-foreground !tracking-normal"
+        autofocus
     />
     <h1 class="text-5xl">
         <RainbowText bind:text />

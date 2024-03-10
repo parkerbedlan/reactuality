@@ -3,5 +3,5 @@
 </script>
 
 <h1 class="text-4xl">
-    <RainbowText text="Hello world" />
+    <RainbowText text="Hello worlds..." />
 </h1>
