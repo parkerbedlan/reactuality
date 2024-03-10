@@ -1,1 +1,1 @@
-<script>import "../app.pcss";</script><slot></slot>
+<script>import "../app.postcss";</script><slot></slot>
