@@ -60,7 +60,7 @@
         <input
             id="email"
             type="email"
-            class="bg-background text-foreground form-input w-80"
+            class="bg-background text-foreground form-input w-96 font-r11y"
             placeholder="coolguy@example.com"
         />
     </form>
