@@ -1,9 +1,13 @@
 <script>
     import NavLink from "./NavLink.svelte";
-import "../app.postcss";</script>
+    import "../app.postcss";
+</script>
+
 <svelte:head>
     <title>RE: ACTUALITY</title>
 </svelte:head>
+
+<div id="pilot" />
 <header class="border-b flex items-center justify-center">
     <a href="/" class="group">
         <img
@@ -29,4 +33,4 @@ import "../app.postcss";</script>
     </div>
 </nav>
 
-<slot></slot>
+<slot />
