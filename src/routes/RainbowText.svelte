@@ -1,31 +1,19 @@
 <script lang="ts">
+    import RainbowWord from "./RainbowWord.svelte";
+
     export let text: string;
-    export let colorless = false;
+    export let center: boolean = false;
 
-    $: chars = text.toUpperCase().split("");
-
-    const colorClasses = [
-        "text-r11y-red",
-        "text-r11y-orange",
-        "text-r11y-yellow",
-        "text-r11y-lime",
-        "text-r11y-green",
-        "text-r11y-emerald",
-        "text-r11y-cyan",
-        "text-r11y-blue",
-        "text-r11y-indigo",
-        "text-r11y-purple",
-        "text-r11y-fuchsia",
-        "text-r11y-pink",
-    ];
+    $: words = text.split(" ");
+    // $: cumulativeLengths = words.map((word, i) => words.slice(0, i).join(" ").length);
+    $: wordLengths = words.map((word) => word.length);
+    $: cumulativeWordLengths = wordLengths.map((length, i) => wordLengths.slice(0, i).reduce((a, b) => a + b, 0));
 </script>
 
-<div class="flex flex-wrap font-r11y">
-    {#each chars as char, i}
-        <div
-            class={`w-[1em] text-center ${colorless ? "" : colorClasses[i % colorClasses.length]}`}
-        >
-            {char}
-        </div>
+<div class={`flex flex-wrap ${center ? 'justify-center' : ''}`}>
+    {#each words as word, i}
+            <RainbowWord text={word} offset={cumulativeWordLengths[i]} />
+            <RainbowWord text=" " />
     {/each}
 </div>
+

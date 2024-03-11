@@ -13,7 +13,7 @@
     </a>
 </header>
 <nav
-    class="border-b sticky flex items-center justify-center sm:gap-8 font-r11y h-8 mb-4 top-0 bg-background [&_*]:!flex-nowrap"
+    class="border-b sticky flex items-center justify-center sm:gap-8 font-r11y h-8 mb-4 top-0 bg-background"
 >
     <div class="border-r px-1 sm:border-none">
         <NavLink text="Pilot" href="/#pilot" />

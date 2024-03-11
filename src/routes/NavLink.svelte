@@ -1,5 +1,5 @@
 <script lang="ts">
-    import RainbowText from "./RainbowText.svelte";
+    import RainbowWord from "./RainbowWord.svelte";
 
     export let hover = false;
     export let text: string;
@@ -18,6 +18,6 @@
     class="text-2xl group"
 >
     <div class="group-active:scale-50 duration-75">
-        <RainbowText {text} colorless={!hover} />
+        <RainbowWord {text} colorless={!hover} />
     </div>
 </a>

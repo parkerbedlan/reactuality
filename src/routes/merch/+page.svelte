@@ -3,13 +3,12 @@
 </script>
 
 <div
-    class="text-4xl text-center flex flex-wrap justify-center -z-10 [&_*]:!flex-nowrap w-full absolute"
+    class="text-4xl -z-10 w-full absolute"
 >
-    <RainbowText text="opening" />
-    <RainbowText text=" closet..." />
+    <RainbowText text="opening closet..." center />
 </div>
 <iframe
     title="Merch Shop"
     src="https://reactuality.myspreadshop.com/"
-    class="w-full h-[300vh] select-none overflow-y-visible z-10"
+    class="w-full h-[300vh] select-none overflow-y-visible"
 ></iframe>
