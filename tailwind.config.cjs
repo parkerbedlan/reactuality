@@ -64,7 +64,7 @@ const config = {
         "r11y-pink": "rgb(var(--r11y-pink) / <alpha-value>)",
       },
       fontFamily: {
-        r11y: ["Reactuality"],
+        r11y: ["Reactuality", "monospace"],
       },
     },
   },
