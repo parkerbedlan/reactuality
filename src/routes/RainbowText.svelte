@@ -1,5 +1,6 @@
 <script lang="ts">
     export let text: string;
+    export let colorless = false
 
     // string to array
     $: chars = text.toUpperCase().split("");
@@ -21,8 +22,8 @@
 </script>
 
 <!-- {JSON.stringify(chars)} -->
-<div class="flex flex-wrap">
+<div class="flex flex-wrap font-r11y">
     {#each chars as char, i}
-        <div class={`w-[2ch] ${colorClasses[i % colorClasses.length]}`}>{char}</div>
+        <div class={`w-[1em] ${colorless ? '' : colorClasses[i % colorClasses.length]}`}>{char}</div>
     {/each}
 </div>
