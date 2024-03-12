@@ -16,7 +16,12 @@
 
     let hover = false;
     let showEnter = false;
+
+    let innerWidth: number;
+    let innerHeight: number;
 </script>
+
+<svelte:window bind:innerWidth bind:innerHeight />
 
 {#if muted}
     <button
@@ -37,7 +42,7 @@
 <!-- svelte-ignore a11y-media-has-caption -->
 <video
     bind:muted
-    class="fixed z-20 inset-0 mx-auto my-auto"
+    class={`fixed z-20 inset-0 mx-auto my-auto ${innerHeight > innerWidth ? "scale-150" : "scale-100"}`}
     bind:this={videoRef}
     on:click={() => (muted = false)}
 >
@@ -46,7 +51,7 @@
 
 {#if showEnter}
     <button
-        class="fixed z-30 inset-0 mx-auto my-auto text-[3vw] xl:text-4xl h-fit group w-fit"
+        class={`fixed z-30 inset-0 mx-auto my-auto text-[3vw] xl:text-4xl h-fit group w-fit ${innerHeight > innerWidth ? "scale-150" : "scale-100"}`}
         transition:fade={{ delay: 12000, duration: 4000 }}
         on:mouseenter={() => (hover = true)}
         on:mouseleave={() => (hover = false)}
