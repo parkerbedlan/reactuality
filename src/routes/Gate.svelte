@@ -46,8 +46,7 @@
     bind:this={videoRef}
     on:click={() => (muted = false)}
 >
-    <!-- <source src="/ultradoor-gate-2.mp4" type="video/mp4" /> -->
-    <source src="https://github.com/parkerbedlan/reactuality/raw/main/static/ultradoor-gate-2.mp4" type="video/mp4" />
+    <source src="https://github.com/parkerbedlan/assets/raw/main/reactuality/ultradoor-gate-2.mp4" type="video/mp4" />
 </video>
 
 {#if showEnter}
