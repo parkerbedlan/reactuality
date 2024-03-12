@@ -1,7 +1,7 @@
 <script lang="ts">
     import RainbowWord from "./RainbowWord.svelte";
 
-    export let hover = false;
+    let hover = false;
     export let text: string;
     export let href: string;
 </script>
