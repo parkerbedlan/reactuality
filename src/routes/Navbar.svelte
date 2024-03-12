@@ -6,7 +6,7 @@
 <header class="border-b flex items-center justify-center">
     <a href="/" class="group">
         <img
-            src="/episode-1-sole-title.jpg"
+            src="https://raw.githubusercontent.com/parkerbedlan/reactuality/main/static/episode-1-sole-title.jpg"
             alt="Re:Actuality - Rules of the Universe"
             class="h-24 group-active:scale-50 duration-75"
         />
