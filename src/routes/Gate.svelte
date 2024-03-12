@@ -46,7 +46,7 @@
 
 {#if showEnter}
     <button
-        class="fixed z-30 inset-0 mx-auto my-auto text-[3vw] xl:text-4xl h-fit group"
+        class="fixed z-30 inset-0 mx-auto my-auto text-[3vw] xl:text-4xl h-fit group w-fit"
         transition:fade={{ delay: 12000, duration: 4000 }}
         on:mouseenter={() => (hover = true)}
         on:mouseleave={() => (hover = false)}
