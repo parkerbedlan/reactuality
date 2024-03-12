@@ -21,6 +21,7 @@
 {#if muted}
     <button
         class="fixed top-2 right-2 bg-foreground text-background rounded-md p-2 z-50"
+        on:click={() => (muted = false)}
     >
         <Mute />
     </button>
