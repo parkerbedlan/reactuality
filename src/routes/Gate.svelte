@@ -37,7 +37,7 @@
 <!-- svelte-ignore a11y-media-has-caption -->
 <video
     bind:muted
-    class="h-screen fixed z-20 inset-0 mx-auto"
+    class="fixed z-20 inset-0 mx-auto my-auto"
     bind:this={videoRef}
     on:click={() => (muted = false)}
 >
