@@ -1,9 +1,9 @@
 // import { error } from "@sveltejs/kit";
-import type { RequestEvent, RequestHandler } from "./$types";
+import type { RequestEvent } from "./$types";
 import { NODE_ENV } from "$env/static/private";
 
-export function GET({ cookies }: RequestEvent) {
-  console.log("open sesame!");
+export function GET({ cookies, getClientAddress }: RequestEvent) {
+  console.log("open sesame!", getClientAddress());
 
   cookies.set("gate", "open", {
     path: "/",

@@ -46,13 +46,16 @@
     bind:this={videoRef}
     on:click={() => (muted = false)}
 >
-    <source src="https://github.com/parkerbedlan/assets/raw/main/reactuality/ultradoor-gate-2.mp4" type="video/mp4" />
+    <source
+        src="https://github.com/parkerbedlan/assets/raw/main/reactuality/ultradoor-gate-2.mp4"
+        type="video/mp4"
+    />
 </video>
 
+<!-- transition:fade={{ delay: 14000, duration: 4000 }} -->
 {#if showEnter}
     <button
         class={`fixed z-30 inset-0 mx-auto my-auto text-[3vw] xl:text-4xl h-fit group w-fit ${innerHeight > innerWidth ? "scale-150" : "scale-100"}`}
-        transition:fade={{ delay: 14000, duration: 4000 }}
         on:mouseenter={() => (hover = true)}
         on:mouseleave={() => (hover = false)}
         on:focus={() => (hover = true)}
