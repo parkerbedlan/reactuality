@@ -1,0 +1,19 @@
+{
+    "transforms": [
+        {
+            "mode": "sql",
+            "include": "**/*.sql",
+            "emitTemplate": "{{dir}}/{{name}}.ts"
+        }
+    ],
+    "srcDir": "./src/",
+    "failOnError": false,
+    "camelCaseColumnNames": false,
+    "db": {
+        "ssl": true
+    },
+    "typesOverrides": {
+        "timestamptz": "string"
+    }
+}
+

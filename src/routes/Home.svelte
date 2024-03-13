@@ -9,8 +9,6 @@
     import RainbowText from "./RainbowText.svelte";
 
     let email: string;
-
-    let justJoined = false;
 </script>
 
 <div class="flex flex-col gap-4">
@@ -64,7 +62,6 @@
             method="post"
             action="?/joinMailingList"
             use:enhance
-            on:submit={() => (justJoined = true)}
             out:scale
         >
             <label for="email"
@@ -83,9 +80,14 @@
             />
         </form>
     {/if}
-    {#if justJoined}
+    {#if $page.form && $page.form.status === "success"}
         <h5 class="text-xl" in:scale={{ delay: 500 }}>
-            <RainbowText center text="Thanks for joining :D" />
+            <RainbowText center text={$page.form.message} />
+        </h5>
+    {/if}
+    {#if $page.form && $page.form.status === "error"}
+        <h5 class="text-xl text-r11y-red font-r11y text-center" transition:scale>
+            {$page.form.message}
         </h5>
     {/if}
 </div>
