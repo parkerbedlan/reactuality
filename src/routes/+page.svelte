@@ -2,7 +2,6 @@
     import { page } from "$app/stores";
     import Gate from "./Gate.svelte";
     import Home from "./Home.svelte";
-
 </script>
 
 <!-- <pre class="fixed z-50 top-0 left-0"> -->

@@ -1,9 +1,16 @@
-<script>
+<script lang="ts">
+    import { enhance } from "$app/forms";
+    import { page } from "$app/stores";
     import Instagram from "$lib/icons/Instagram.svelte";
     import Reddit from "$lib/icons/Reddit.svelte";
     import TikTok from "$lib/icons/TikTok.svelte";
     import YouTube from "$lib/icons/YouTube.svelte";
+    import { scale } from "svelte/transition";
     import RainbowText from "./RainbowText.svelte";
+
+    let email: string;
+
+    let justJoined = false;
 </script>
 
 <div class="flex flex-col gap-4">
@@ -51,18 +58,34 @@
             <TikTok class="w-12 h-12 duration-75 group-active:scale-50" />
         </a>
     </div>
-    <form class="flex flex-col items-center justify-center">
-        <label for="email"
-            ><RainbowText
-                center
-                text="Get notified when the next episode comes out!"
-            /></label
+    {#if !$page.data.joinedMailingList}
+        <form
+            class="flex flex-col items-center justify-center"
+            method="post"
+            action="?/joinMailingList"
+            use:enhance
+            on:submit={() => (justJoined = true)}
+            out:scale
         >
-        <input
-            id="email"
-            type="email"
-            class="bg-background text-foreground form-input w-96 font-r11y"
-            placeholder="coolguy@example.com"
-        />
-    </form>
+            <label for="email"
+                ><RainbowText
+                    center
+                    text="Get notified when the next episode comes out!"
+                /></label
+            >
+            <input
+                id="email"
+                name="email"
+                type="email"
+                class="bg-background text-foreground form-input w-96 font-r11y"
+                placeholder="coolguy@example.com"
+                bind:value={email}
+            />
+        </form>
+    {/if}
+    {#if justJoined}
+        <h5 class="text-xl" in:scale={{ delay: 500 }}>
+            <RainbowText center text="Thanks for joining :D" />
+        </h5>
+    {/if}
 </div>
