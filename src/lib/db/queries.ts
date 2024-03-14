@@ -54,3 +54,31 @@ const signUpIR: any = {"usedParamSet":{"ipAddress":true},"params":[{"name":"ipAd
 export const signUp = new PreparedQuery<ISignUpParams,ISignUpResult>(signUpIR);
 
 
+/** 'LogSiteVisit' parameters type */
+export interface ILogSiteVisitParams {
+  ipAddress: string;
+  nodeEnv: string;
+  url: string;
+  userId?: number | null | void;
+}
+
+/** 'LogSiteVisit' return type */
+export type ILogSiteVisitResult = void;
+
+/** 'LogSiteVisit' query type */
+export interface ILogSiteVisitQuery {
+  params: ILogSiteVisitParams;
+  result: ILogSiteVisitResult;
+}
+
+const logSiteVisitIR: any = {"usedParamSet":{"ipAddress":true,"url":true,"nodeEnv":true,"userId":true},"params":[{"name":"ipAddress","required":true,"transform":{"type":"scalar"},"locs":[{"a":71,"b":81}]},{"name":"url","required":true,"transform":{"type":"scalar"},"locs":[{"a":84,"b":88}]},{"name":"nodeEnv","required":true,"transform":{"type":"scalar"},"locs":[{"a":91,"b":99}]},{"name":"userId","required":false,"transform":{"type":"scalar"},"locs":[{"a":102,"b":108}]}],"statement":"INSERT INTO \"site_visits\" (ip_address, url, node_env, user_id) VALUES (:ipAddress!, :url!, :nodeEnv!, :userId)"};
+
+/**
+ * Query generated from SQL:
+ * ```
+ * INSERT INTO "site_visits" (ip_address, url, node_env, user_id) VALUES (:ipAddress!, :url!, :nodeEnv!, :userId)
+ * ```
+ */
+export const logSiteVisit = new PreparedQuery<ILogSiteVisitParams,ILogSiteVisitResult>(logSiteVisitIR);
+
+

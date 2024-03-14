@@ -52,9 +52,9 @@
     />
 </video>
 
-<!-- transition:fade={{ delay: 14000, duration: 4000 }} -->
 {#if showEnter}
     <button
+        transition:fade={{ delay: 14000, duration: 4000 }}
         class={`fixed z-30 inset-0 mx-auto my-auto text-[3vw] xl:text-4xl h-fit group w-fit ${innerHeight > innerWidth ? "scale-150" : "scale-100"}`}
         on:mouseenter={() => (hover = true)}
         on:mouseleave={() => (hover = false)}
