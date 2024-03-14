@@ -1,14 +1,20 @@
-import { NODE_ENV, DATABASE_URL } from "$env/static/private";
+import { JWT_SECRET } from "$env/static/private";
 import { joinMailingList } from "$lib/db/queries";
 import { error } from "@sveltejs/kit";
 import type { Actions } from "./$types";
-import pg from "pg";
-const { Client } = pg;
+import { cookieConfig } from "$lib/db/cookieConfig";
+import pkg from "jsonwebtoken";
+import { newDbClient } from "$lib/db/client";
+const { verify } = pkg;
 
 export const actions: Actions = {
   joinMailingList: async ({ request, cookies }) => {
     const data = await request.formData();
     const email = data.get("email");
+
+    const jwt = cookies.get("jwt")
+      ? (verify(cookies.get("jwt")!, JWT_SECRET) as { userId: number })
+      : undefined;
 
     console.log("adding email", email);
 
@@ -16,19 +22,15 @@ export const actions: Actions = {
       return { status: "error", message: "Invalid email" };
 
     const markAsJoined = () =>
-      cookies.set("joinedMailingList", "true", {
-        path: "/",
-        secure: NODE_ENV === "production",
-        httpOnly: true,
-      });
+      cookies.set("joinedMailingList", "true", cookieConfig);
 
-    const dbClient = new Client({
-      connectionString: DATABASE_URL,
-    });
     try {
-      await dbClient.connect();
-      await joinMailingList.run({ email: email.toLowerCase() }, dbClient);
-      await dbClient.end();
+      const db = await newDbClient();
+      await joinMailingList.run(
+        { email: email.toLowerCase(), userId: jwt?.userId ?? -1 },
+        db,
+      );
+      await db.end();
     } catch (e: any) {
       console.error(e);
       if (e.constraint === "mailing_list_email_key") {
