@@ -21,7 +21,7 @@
     ];
 </script>
 
-<div class="flex font-r11y">
+<div class="flex flex-nowrap font-r11y">
     {#each chars as char, i}
         <div
             class={`w-[1em] text-center ${colorless ? "" : colorClasses[(i + offset) % colorClasses.length]}`}

@@ -7,12 +7,25 @@
     import YouTube from "$lib/icons/YouTube.svelte";
     import { scale } from "svelte/transition";
     import RainbowText from "./RainbowText.svelte";
+    import RainbowWord from "./RainbowWord.svelte";
 
     let email: string;
 </script>
 
 <div class="flex flex-col gap-4">
-    <!-- src="https://www.youtube-nocookie.com/embed/XFkK_8MoakM" -->
+    <div class="relative overflow-x-hidden">
+        <div class="w-fit min-w-full animate-marquee flex justify-around [&>*]:mr-16">
+            <RainbowWord  text="Where were you?"  />
+            <RainbowWord text="Where are you?" />
+            <RainbowWord  text="Where will you be?" />
+        </div>
+        <div class="w-fit min-w-full animate-marquee2 absolute top-0 flex justify-around [&>*]:mr-16">
+            <RainbowWord  text="Where were you?" />
+            <RainbowWord text="Where are you?" />
+            <RainbowWord  text="Where will you be?" />
+        </div>
+    </div>
+
     <iframe
         src="https://www.youtube.com/embed/XFkK_8MoakM"
         title="YouTube video player"
@@ -86,7 +99,10 @@
         </h5>
     {/if}
     {#if $page.form && $page.form.status === "error"}
-        <h5 class="text-xl text-r11y-red font-r11y text-center" transition:scale>
+        <h5
+            class="text-xl text-r11y-red font-r11y text-center"
+            transition:scale
+        >
             {$page.form.message}
         </h5>
     {/if}
