@@ -16,7 +16,7 @@
     class="border-b sticky flex items-center justify-center sm:gap-8 font-r11y h-8 mb-4 top-0 bg-background"
 >
     <div class="border-r px-1 sm:border-none">
-        <NavLink text="Pilot" href="/#pilot" />
+        <NavLink text="Pilot" href="/" />
     </div>
     <div class="text-6xl hidden sm:block">-</div>
     <div class="px-1 sm:border-none">
